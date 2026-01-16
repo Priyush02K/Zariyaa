@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zariyaa - Where Threads Tell Stories</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- MARQUEE ANIMATION FIX (INLINE) --- */
+        /* Forces the animation to run without relying on external CSS loading */
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            /* Pushes text to the right side (off-screen) initially */
+            padding-left: 100%; 
+            /* Runs the animation: 25 seconds, linear speed, infinite loop */
+            animation: marquee-scroll 25s linear infinite;
+        }
+
+        /* Pauses text when user hovers over it */
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Utility for hiding scrollbars */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-sans text-gray-900 bg-white min-h-screen flex flex-col overflow-x-hidden relative">
+
+    <!-- 0. Republic Day Marquee -->
+    <div class="bg-amber-700 text-white text-xs py-2 overflow-hidden relative z-[60]">
+        <!-- Added inline-block wrapper to ensuring animation context is correct -->
+        <div class="w-full overflow-hidden">
+            <div class="animate-marquee font-medium tracking-wider">
+                🇮🇳 REPUBLIC DAY SALE IS LIVE! FLAT 50% OFF ON ALL ETHNIC WEAR — USE CODE: JAIHIND50 — FREE SHIPPING ON ALL ORDERS 🇮🇳
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Notification Top Bar -->
+    <div class="bg-stone-900 text-white text-xs md:text-sm py-2 text-center tracking-wide px-4 relative z-50 border-b border-stone-800">
+        <p>Complimentary Shipping on all orders over $150 | Worldwide Delivery</p>
+    </div>
+
+    <!-- 2. Main Header -->
+    <header id="main-header" class="sticky top-0 z-40 transition-all duration-300 border-b border-gray-100 bg-white py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                
+                <!-- Mobile Menu Button (Left) -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 -ml-2 text-gray-800 hover:text-amber-700 relative z-50">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+
+                <!-- Logo & Tagline -->
+                <div class="flex flex-col items-center md:items-start group cursor-pointer">
+                    <h1 class="font-serif text-3xl md:text-4xl tracking-tighter text-stone-900">
+                        ZARIYAA
+                    </h1>
+                    <span class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-stone-500 mt-1">
+                        Where Threads Tell Stories
+                    </span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 lg:space-x-12 mx-auto">
+                    <a href="index.html" class="text-sm font-medium hover:text-amber-700 transition-colors uppercase tracking-widest">Home</a>
+                    
+                    <!-- Woman Menu -->
+                    <div class="relative group h-full py-4">
+                        <button class="flex items-center text-sm font-medium hover:text-amber-700 transition-colors uppercase tracking-widest gap-1">
+                            Woman <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                        </button>
+                        
+                        <!-- Mega Menu Dropdown -->
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white shadow-xl border border-gray-100 rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top p-8 z-50 mt-2">
+                            <div class="grid grid-cols-3 gap-8">
+                                <div>
+                                    <h3 class="font-serif text-lg mb-4 text-stone-900 border-b pb-2">Apparel</h3>
+                                    <ul class="space-y-3 text-sm text-gray-600">
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">New Arrivals</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Dresses & Gowns</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Tops & Blouses</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Co-ord Sets</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Jackets & Coats</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-lg mb-4 text-stone-900 border-b pb-2">Indian Wear</h3>
+                                    <ul class="space-y-3 text-sm text-gray-600">
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Kurtas</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Sarees</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Lehengas</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Fusion Wear</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-lg mb-4 text-stone-900 border-b pb-2">Accessories</h3>
+                                    <ul class="space-y-3 text-sm text-gray-600">
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Jewelry</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Bags & Clutches</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Scarves</li>
+                                        <li class="hover:text-amber-700 cursor-pointer hover:translate-x-1 transition-transform">Footwear</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="text-sm font-medium hover:text-amber-700 transition-colors uppercase tracking-widest">About</a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-amber-700 transition-colors uppercase tracking-widest">Contact</a>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="flex items-center space-x-6">
+                    <button class="text-gray-800 hover:text-amber-700 transition-colors">
+                        <i data-lucide="search" class="w-5 h-5" stroke-width="1.5"></i>
+                    </button>
+                    
+                    <a href="profile.html" class="hidden md:flex flex-col items-center text-gray-800 hover:text-amber-700 transition-colors">
+                        <i data-lucide="user" class="w-5 h-5" stroke-width="1.5"></i>
+                        <span class="text-[10px] uppercase mt-1 tracking-wide">Profile</span>
+                    </a>
+                    
+                    <a href="wishlist.html" class="hidden md:flex flex-col items-center text-gray-800 hover:text-amber-700 transition-colors relative group">
+                        <i data-lucide="heart" class="w-5 h-5" stroke-width="1.5"></i>
+                        <span class="text-[10px] uppercase mt-1 tracking-wide">Wishlist</span>
+                    </a>
+                    
+                    <a href="cart.html" class="flex flex-col items-center text-gray-800 hover:text-amber-700 transition-colors relative">
+                        <div class="relative">
+                            <i data-lucide="shopping-bag" class="w-5 h-5" stroke-width="1.5"></i>
+                            <span class="absolute -top-2 -right-2 bg-stone-900 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">3</span>
+                        </div>
+                        <span class="text-[10px] uppercase mt-1 tracking-wide">Bag</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (Overlay) -->
+    <!-- z-[100] ensures it is above everything -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[100] hidden transition-opacity duration-300 opacity-0">
+        <div id="mobile-menu-drawer" class="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col h-full">
+            <div class="p-5 flex justify-between items-center border-b border-gray-100">
+                <h2 class="font-serif text-2xl tracking-tight text-stone-900">ZARIYAA</h2>
+                <button id="mobile-menu-close" class="p-2 -mr-2 text-gray-500 hover:text-black hover:bg-gray-100 rounded-full">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto py-6 px-6">
+                <nav class="space-y-6">
+                    <a href="index.html" class="block text-lg font-medium text-gray-900 pb-2 border-b border-gray-50">Home</a>
+                    
+                    <!-- Mobile Submenu Accordion -->
+                    <div>
+                        <button id="mobile-woman-btn" class="flex justify-between items-center w-full text-lg font-medium text-gray-900 mb-3">
+                            Woman <i id="mobile-woman-icon" data-lucide="chevron-down" class="w-5 h-5 transform transition-transform duration-300"></i>
+                        </button>
+                        <div id="mobile-woman-content" class="pl-4 space-y-3 overflow-hidden max-h-0 transition-all duration-300 border-l-2 border-amber-700/20">
+                            <a href="#" class="block text-gray-600 hover:text-amber-700 py-1">New Arrivals</a>
+                            <a href="#" class="block text-gray-600 hover:text-amber-700 py-1">Dresses</a>
+                            <a href="#" class="block text-gray-600 hover:text-amber-700 py-1">Indian Wear</a>
+                            <a href="#" class="block text-gray-600 hover:text-amber-700 py-1">Accessories</a>
+                            <a href="#" class="block text-gray-600 hover:text-amber-700 py-1">Footwear</a>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="block text-lg font-medium text-gray-900 pb-2 border-b border-gray-50">About</a>
+                    <a href="contact.html" class="block text-lg font-medium text-gray-900 pb-2 border-b border-gray-50">Contact</a>
+                    
+                    <div class="pt-6 mt-4 space-y-4">
+                        <a href="profile.html" class="flex items-center gap-4 text-gray-700 font-medium p-2 hover:bg-gray-50 rounded-md">
+                            <i data-lucide="user" class="w-5 h-5"></i> My Account
+                        </a>
+                        <a href="wishlist.html" class="flex items-center gap-4 text-gray-700 font-medium p-2 hover:bg-gray-50 rounded-md">
+                            <i data-lucide="heart" class="w-5 h-5"></i> Wishlist
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Placeholder Hero Section -->
+    <main class="flex-grow bg-stone-50">
+        <div class="relative h-[80vh] flex items-center justify-center bg-stone-200 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-stone-400/20 to-stone-500/20 z-0"></div>
+            <div class="text-center z-10 px-4">
+                <h2 class="text-5xl md:text-7xl font-serif text-stone-900 mb-6 tracking-tight">Summer '25 Collection</h2>
+                <p class="text-lg md:text-xl text-stone-700 mb-8 max-w-2xl mx-auto font-light">
+                    Experience the elegance of timeless design. Handcrafted for the modern muse.
+                </p>
+                <button class="bg-stone-900 text-white px-10 py-4 uppercase tracking-widest text-sm hover:bg-stone-800 transition-all hover:scale-105 duration-300">
+                    Explore Collection
+                </button>
+            </div>
+        </div>
+        
+        <div class="h-96 flex items-center justify-center text-stone-400">
+            <p>Next Sections: Hero Slideshow & Categories</p>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer class="bg-stone-900 text-white py-12 text-center">
+        <p class="font-serif text-2xl mb-2">ZARIYAA</p>
+        <p class="text-stone-400 text-sm">© 2024 Zariyaa Fashion. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to External JS -->
+    <script src="script.js"></script>
+
+    <!-- Force Icon Initialization -->
+    <script>
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
